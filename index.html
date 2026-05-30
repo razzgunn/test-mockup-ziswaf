@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZiswafHub Mobile - Premium UI Experience</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght class=400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-slate-950 flex justify-center items-center min-h-screen antialiased text-slate-800 p-2 sm:p-4">
+
+    <div class="w-full max-w-md h-[844px] bg-[#f8fafc] shadow-2xl rounded-[40px] border-8 border-slate-900 overflow-hidden relative flex flex-col">
+        
+        <div class="bg-[#1e4637] text-white px-6 pt-3 pb-2 flex justify-between items-center text-xs font-bold shrink-0 z-50">
+            <div>09:41</div>
+            <div class="w-24 h-4 bg-slate-950 rounded-full mx-auto absolute left-1/2 transform -translate-x-1/2 top-2"></div>
+            <div class="flex items-center gap-1">
+                <span>📶</span>
+                <span>🪫</span>
+            </div>
+        </div>
+
+        <header id="main-header" class="hidden bg-white text-slate-800 px-4 py-3 justify-between items-center shadow-sm border-b border-slate-100 shrink-0 z-40">
+            <div class="flex items-center gap-2">
+                <svg class="w-26 h-8" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="22" fill="#1e4637"/>
+                    <path d="M14 25C17 25 17 22 17 22C17 22 17 25 20 25C17 25 17 28 17 28C17 28 17 25 14 25Z" fill="#a3b899"/>
+                    <path d="M19 14H30L20 35H31" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="54" y="29" font-family="sans-serif" font-size="14" font-weight="800" fill="#1e4637" letter-spacing="0.5">ZISWAF</text>
+                    <text x="114" y="29" font-family="sans-serif" font-size="14" font-weight="800" fill="#cc9a06" letter-spacing="0.5">HUB</text>
+                    <text x="54" y="41" font-family="sans-serif" font-size="5.5" font-weight="500" fill="#718096" letter-spacing="1">ZAKAT · INFAQ · SHADAQAH · WAKAF</text>
+                </svg>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="bg-amber-50 border border-amber-200/60 rounded-full px-2.5 py-1 flex items-center gap-1">
+                    <span class="text-xs">✨</span>
+                    <span class="text-xs font-black text-[#cc9a06]" id="global-xp">350</span>
+                    <span class="text-[9px] text-amber-700 font-bold">XP</span>
+                </div>
+                <button onclick="logoutAplikasi()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-xs hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer">➔</button>
+            </div>
+        </header>
+
+        <nav id="feature-tabs" class="hidden bg-white border-b border-slate-100 p-2 overflow-x-auto whitespace-nowrap shrink-0 z-40 gap-2 scrollbar-none">
+            <button onclick="bukaHalamanWorkspace('fitur1')" id="tab-fitur1" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all shadow-sm cursor-pointer">📊 Dampak</button>
+            <button onclick="bukaHalamanWorkspace('fitur2')" id="tab-fitur2" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer">🌅 Subuh Routine</button>
+            <button onclick="bukaHalamanWorkspace('fitur3')" id="tab-fitur3" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer">📚 Kuis Fiqh</button>
+            <button onclick="bukaHalamanWorkspace('fitur4')" id="tab-fitur4" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer">🛒 Pembulatan</button>
+            <button onclick="bukaHalamanWorkspace('fitur5')" id="tab-fitur5" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer">🤝 Solidaritas</button>
+        </nav>
+
+        <main class="flex-1 overflow-y-auto relative bg-[#f8fafc] pb-20">
+
+            <section id="page-landing" class="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-b from-[#1e4637] via-[#112a21] to-[#0a1b15] text-white z-50 transition-all duration-500">
+                <div class="absolute top-12 left-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-36 right-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
+
+                <div class="flex flex-col items-center text-center my-auto space-y-8 relative z-10 w-full">
+                    <div class="bg-white p-4 rounded-3xl shadow-2xl border-2 border-amber-400/40 transform scale-105">
+                        <svg class="w-40 h-12" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="22" fill="#1e4637"/>
+                            <path d="M14 25C17 25 17 22 17 22C17 22 17 25 20 25C17 25 17 28 17 28C17 28 17 25 14 25Z" fill="#a3b899"/>
+                            <path d="M19 14H30L20 35H31" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="54" y="29" font-family="sans-serif" font-size="14" font-weight="800" fill="#1e4637" letter-spacing="0.5">ZISWAF</text>
+                            <text x="114" y="29" font-family="sans-serif" font-size="14" font-weight="800" fill="#cc9a06" letter-spacing="0.5">HUB</text>
+                            <text x="54" y="41" font-family="sans-serif" font-size="5.5" font-weight="500" fill="#718096" letter-spacing="1">ZAKAT · INFAQ · SHADAQAH · WAKAF</text>
+                        </svg>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex justify-center items-center gap-2.5 text-2xl font-black uppercase tracking-wider">
+                            <span class="text-emerald-400 drop-shadow">Kenali.</span>
+                            <span class="text-amber-400 drop-shadow">Pahami.</span>
+                            <span class="text-white drop-shadow">Tunaikan.</span>
+                        </div>
+                        <div class="w-12 h-1 bg-gradient-to-r from-emerald-400 to-amber-400 mx-auto rounded-full"></div>
+                        <p class="text-xs text-slate-300 max-w-xs mx-auto leading-relaxed">
+                            Ekosistem filantropi Islam digital penumbuh jiwa kedermawanan generasi muda dalam satu genggaman pintar.
+                        </p>
+                    </div>
+
+                    <div class="w-full bg-white/5 backdrop-blur-xl rounded-3xl p-5 border border-white/10 text-left space-y-4 shadow-xl">
+                        <div class="text-center pb-1">
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-3 py-1 rounded-full uppercase tracking-widest">Portal Integrasi Mahasiswa</span>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-300">Email Akun Single Sign-On</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3.5 text-xs text-slate-400">👤</span>
+                                <input type="text" id="login-user" value="mahasiswa@unpad.ac.id" class="w-full bg-slate-900/40 border border-white/10 rounded-xl pl-9 pr-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-amber-400 focus:bg-slate-900/80 transition-all">
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-300">Kata Sandi</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3.5 text-xs text-slate-400">🔒</span>
+                                <input type="password" id="login-pass" value="••••••••" class="w-full bg-slate-900/40 border border-white/10 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400 focus:bg-slate-900/80 transition-all">
+                            </div>
+                        </div>
+                        <button onclick="prosesAutentikasiLogin()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-extrabold text-xs py-3.5 rounded-xl transition-all shadow-lg active:scale-[0.98] mt-2 tracking-wide uppercase cursor-pointer">
+                            Masuk Ke Dasbor Berkah
+                        </button>
+                    </div>
+                </div>
+                <p class="text-[10px] text-center text-slate-500 font-medium">Platform Berlisensi v2.4.0 • Syariat Compliance</p>
+            </section>
+
+            <div id="workspace-container" class="hidden">
+                <section id="page-fitur1" class="fitur-page hidden p-4 space-y-4">
+                    <div class="flex justify-between items-center bg-white p-3 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-lg bg-emerald-50 flex items-center justify-center text-sm">📊</div>
+                            <span class="text-xs font-bold text-slate-700">Skema Transparansi Riil</span>
+                        </div>
+                        <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">100% Amanah</span>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-[#1e4637] to-[#112d22] rounded-3xl p-5 text-white shadow-xl relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-24 h-24 bg-amber-400/10 rounded-full blur-2xl"></div>
+                        <h2 class="text-xs font-extrabold uppercase tracking-widest text-amber-400 mb-1">Impact Tracking Engine</h2>
+                        <p class="text-[11px] text-slate-300 leading-relaxed mb-4">Ubah kalkulasi rupiah Anda menjadi wujud indikator sosial logis dan nyata secara langsung.</p>
+                        
+                        <div class="bg-black/20 p-4 rounded-2xl border border-white/10 space-y-3">
+                            <div class="text-center">
+                                <span class="text-[9px] uppercase tracking-wider font-bold text-emerald-300 block mb-1">Ketik Nominal Rupiah Anda</span>
+                                <div class="relative max-w-[200px] mx-auto">
+                                    <span class="absolute left-3 top-2 text-sm font-bold text-slate-400">Rp</span>
+                                    <input type="number" id="impact-input" value="10000" oninput="hitungSimulasiDampak()" class="w-full bg-slate-900/60 border border-white/10 rounded-xl pl-9 pr-2 py-2 text-base font-black text-center text-white focus:outline-none focus:border-amber-400">
+                                </div>
+                            </div>
+
+                            <div class="bg-white/5 backdrop-blur-sm p-3.5 rounded-xl border border-white/10 text-center relative">
+                                <div class="w-2 h-2 rounded-full bg-emerald-400 absolute left-2 top-2 animate-ping"></div>
+                                <p class="text-[9px] text-amber-300 uppercase font-black tracking-widest mb-1.5">Proyeksi Penyaluran Manfaat</p>
+                                <p id="impact-output" class="text-xs font-bold text-slate-100 italic leading-relaxed">"Donasi Anda setara dengan penyediaan paket alat tulis bagi 1 mahasiswa penerima beasiswa."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                        <p class="text-[10px] uppercase font-black tracking-wide text-slate-400 mb-2">Sektor Fokus Distribusi</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
+                                <p class="text-xs font-bold text-slate-700">📚 Pendidikan</p>
+                                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-1.5"><div class="bg-emerald-600 h-full w-[65%] rounded-full"></div></div>
+                            </div>
+                            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
+                                <p class="text-xs font-bold text-slate-700">🍲 Subsidi Makan</p>
+                                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-1.5"><div class="bg-amber-500 h-full w-[35%] rounded-full"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="page-fitur2" class="fitur-page hidden p-4 space-y-4">
+                    <div class="bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 rounded-2xl p-4 text-white shadow-md flex items-center justify-between">
+                        <div class="space-y-1">
+                            <span class="text-[9px] bg-black/20 text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Fajar Berkah</span>
+                            <h3 class="text-xs font-black">"Sedekah di subuh hari didoakan langsung oleh 2 Malaikat."</h3>
+                        </div>
+                        <span class="text-3xl opacity-80">🌤️</span>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm space-y-4">
+                        <div class="flex items-center gap-3 border-b border-slate-50 pb-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-lg shadow-sm border border-amber-100">🌅</div>
+                            <div>
+                                <h2 class="text-xs font-black text-slate-800 uppercase tracking-wide">Subuh-Routine Scheduler</h2>
+                                <p class="text-[10px] text-slate-400">Otomasi micro-donation berkala pukul 04.30 - 05.30 WIB</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200/60 rounded-2xl p-4 space-y-4">
+                            <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-slate-100 shadow-xs">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-xs">📱</div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-700">Integrasi E-Wallet</p>
+                                        <p class="text-[9px] text-emerald-600 font-semibold flex items-center gap-0.5">🟢 Dana / GoPay Linked</p>
+                                    </div>
+                                </div>
+                                <span class="text-[9px] bg-slate-100 text-slate-500 font-bold px-2 py-1 rounded-md border border-slate-200">Autodebit</span>
+                            </div>
+                            
+                            <div class="space-y-1.5">
+                                <label class="text-[10px] uppercase font-black text-slate-400 tracking-wider block">Set Komitmen Dana Harian</label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button onclick="pilihNominalSubuh(1000, this)" class="subuh-btn py-2.5 text-xs font-black border border-[#1e4637] bg-emerald-50 text-[#1e4637] rounded-xl shadow-xs transition-all cursor-pointer">Rp 1.000</button>
+                                    <button onclick="pilihNominalSubuh(5000, this)" class="subuh-btn py-2.5 text-xs font-bold border border-slate-200 text-slate-600 bg-white rounded-xl transition-all cursor-pointer">Rp 5.000</button>
+                                    <button onclick="pilihNominalSubuh(10000, this)" class="subuh-btn py-2.5 text-xs font-bold border border-slate-200 text-slate-600 bg-white rounded-xl transition-all cursor-pointer">Rp 10.000</button>
+                                </div>
+                            </div>
+                            
+                            <button onclick="toggleAktivasiSubuh()" id="btn-subuh-status" class="w-full bg-[#1e4637] hover:bg-[#143429] text-white text-xs font-extrabold py-3.5 rounded-xl shadow-md transition-all uppercase tracking-wide cursor-pointer">
+                                Aktifkan Rutinitas Otomatis
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="page-fitur3" class="fitur-page hidden p-4 space-y-4">
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-amber-400 flex items-center justify-center text-white text-base shadow-sm font-bold">🏆</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between text-[10px] font-bold text-slate-600 mb-1">
+                                <span>Lencana Aktivitas Ilmu</span>
+                                <span>Level 2 (Muzakki Muda)</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden"><div class="bg-amber-400 h-full w-[60%] rounded-full"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-50 pb-2">
+                            <h2 class="text-xs font-black text-[#1e4637] uppercase tracking-wide">Micro-Learning Center</h2>
+                            <span class="text-[9px] bg-amber-100 text-amber-800 font-extrabold px-2 py-0.5 rounded-full">+100 XP Berkah</span>
+                        </div>
+                        
+                        <div class="bg-slate-950 text-white rounded-2xl p-4 relative overflow-hidden aspect-video flex flex-col justify-between border-2 border-slate-800 shadow-inner">
+                            <span class="text-[8px] uppercase font-black bg-emerald-600 px-2 py-0.5 rounded text-white w-max relative z-10">🎬 Durasi: 1 Menit</span>
+                            <div class="text-center my-auto relative z-10">
+                                <span class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center mx-auto text-sm cursor-pointer shadow hover:scale-110 transition-transform">▶️</span>
+                            </div>
+                            <div class="relative z-10">
+                                <h3 class="text-xs font-extrabold mt-0.5 text-amber-300">Fiqh Kontemporer: Hukum Aturan Wakaf Uang</h3>
+                                <p class="text-[9px] text-slate-400">Korelatif regulasi syariat mualaf & finansial modern abad 21.</p>
+                            </div>
+                        </div>
+
+                        <div id="quiz-box-container" class="border border-dashed border-amber-300 rounded-2xl p-4 bg-amber-50/40 space-y-3">
+                            <p class="text-[9px] font-black text-amber-800 uppercase tracking-widest flex items-center gap-1">📝 Uji Pemahaman Syariat</p>
+                            <p class="text-xs font-black text-slate-700 leading-relaxed">Undang-Undang nomor berapakah yang mengatur tentang Sistem Pengelolaan Zakat aktif di Indonesia?</p>
+                            <div class="space-y-2">
+                                <button onclick="prosesJawabanKuis(false)" class="w-full text-left bg-white border border-slate-200 hover:border-emerald-600 rounded-xl p-3 text-xs font-bold text-slate-600 hover:text-[#1e4637] shadow-2xs transition-all cursor-pointer">A. UU No. 38 Tahun 1999</button>
+                                <button onclick="prosesJawabanKuis(true)" class="w-full text-left bg-white border border-slate-200 hover:border-emerald-600 rounded-xl p-3 text-xs font-bold text-slate-600 hover:text-[#1e4637] shadow-2xs transition-all cursor-pointer">B. UU No. 23 Tahun 2011</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="page-fitur4" class="fitur-page hidden p-4 space-y-4">
+                    <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-4 shadow-md flex gap-3 items-center">
+                        <span class="text-2xl">💡</span>
+                        <p class="text-[11px] text-slate-300 leading-relaxed">
+                            Setiap belanja pakai QRIS di kantin kampus, nominalnya dibulatkan ke ribuan terdekat. Sisa kembaliannya otomatis masuk tabungan infak!
+                        </p>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm space-y-4">
+                        <h2 class="text-xs font-black text-slate-800 uppercase tracking-wide">Pocket Change Round-Up</h2>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 text-xs">
+                            <div class="flex justify-between items-center bg-white p-2.5 rounded-xl border border-slate-100">
+                                <span class="text-slate-500 font-medium">🛒 Transaksi Kantin Bermitra:</span>
+                                <span class="font-extrabold text-slate-800">Rp 12.300</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white p-2.5 rounded-xl border border-slate-100">
+                                <span class="text-slate-500 font-medium">🔢 Pembulatan Terdekat:</span>
+                                <span class="font-extrabold text-amber-600">Rp 13.000</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-emerald-50 to-teal-50 p-4 rounded-xl text-center border border-emerald-100 shadow-xs">
+                                <p class="text-[10px] text-emerald-900 font-semibold mb-0.5">Uang Kembalian Dialokasikan ke Infak</p>
+                                <p class="text-emerald-700 text-base font-black">Rp 700</p>
+                            </div>
+                            <button onclick="jalankanSimulasiRoundUp()" class="w-full bg-slate-900 hover:bg-slate-950 text-white text-xs font-black py-3.5 rounded-xl shadow-md transition-all uppercase tracking-wide mt-1 cursor-pointer">
+                                Simulasikan Belanja QRIS
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-2.5">
+                        <p class="text-[9px] uppercase font-black text-slate-400 tracking-wider">Histori Pembulatan Terakhir</p>
+                        <div class="flex justify-between items-center text-xs border-b border-slate-50 pb-1.5">
+                            <div>
+                                <p class="font-bold text-slate-700">Kopi Susu Kantin Fisip</p>
+                                <p class="text-[9px] text-slate-400">Kemarin, 15:30 WIB</p>
+                            </div>
+                            <span class="font-extrabold text-emerald-600">+Rp 800</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs">
+                            <div>
+                                <p class="font-bold text-slate-700">Print Tugas di Fotokopi</p>
+                                <p class="text-[9px] text-slate-400">24 Mei 2026, 10:12 WIB</p>
+                            </div>
+                            <span class="font-extrabold text-emerald-600">+Rp 400</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="page-fitur5" class="fitur-page hidden p-4 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xs font-black text-slate-800 uppercase tracking-wider">Crowdfunding Mahasiswa</h2>
+                        <span class="text-[9px] bg-red-50 text-red-700 px-2.5 py-1 rounded-full font-bold border border-red-100 flex items-center gap-1 animate-pulse">🔴 Urgent Campaign</span>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm space-y-4 relative overflow-hidden">
+                        <div class="space-y-1">
+                            <span class="text-[8px] bg-amber-100 text-amber-800 font-extrabold px-2 py-0.5 rounded uppercase tracking-wide">Solidaritas Kampus</span>
+                            <h3 class="text-sm font-black text-slate-800 leading-snug">Bantuan Dana Darurat Pengobatan Cedera Insiden Mandiri Mahasiswa</h3>
+                            <p class="text-[10px] text-slate-400 font-medium">Diverifikasi & Diinisiasi oleh: Hubungan Internal Kemahasiswaan</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 space-y-2">
+                            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden shadow-inner">
+                                <div id="p2p-bar" class="bg-gradient-to-r from-emerald-600 to-teal-500 h-full rounded-full transition-all duration-700" style="width: 72%;"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-slate-500 font-medium">
+                                <div class="flex flex-col">
+                                    <span class="text-[9px] text-slate-400 uppercase font-bold">Terkumpul</span>
+                                    <strong id="p2p-current-text" class="text-[#1e4637] text-xs font-black">Rp 7.200.000</strong>
+                                </div>
+                                <div class="flex flex-col text-right">
+                                    <span class="text-[9px] text-slate-400 uppercase font-bold">Target Sasaran</span>
+                                    <strong class="text-slate-700 text-xs font-bold">Rp 10.000.000</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 space-y-2">
+                            <label class="text-[9px] uppercase font-black text-slate-400 tracking-wider block">Input Solidaritas Nominal Suka-suka</label>
+                            <div class="flex gap-2">
+                                <div class="relative flex-1">
+                                    <span class="absolute left-2.5 top-2.5 text-xs font-bold text-slate-400">Rp</span>
+                                    <input type="number" id="p2p-nominal-donasi" value="5000" class="w-full bg-white border border-slate-200 text-slate-800 font-extrabold pl-8 pr-2 py-2 rounded-xl text-xs focus:outline-none focus:border-emerald-600 shadow-2xs">
+                                </div>
+                                <button onclick="tunaikanDonasiP2P()" class="bg-[#1e4637] hover:bg-[#143429] text-white text-xs font-extrabold px-5 py-2.5 rounded-xl shadow-md transition-all uppercase tracking-wide active:scale-95 cursor-pointer">
+                                    Patungan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section id="page-laporan" class="nav-core-page hidden p-4 space-y-4">
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                    <h2 class="text-xs font-black text-slate-800 uppercase tracking-wide mb-3">Audited Financial Report</h2>
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-emerald-50 border border-emerald-100 p-3 rounded-xl">
+                            <span class="text-[9px] uppercase font-bold text-emerald-800 block">Total Penyaluran</span>
+                            <span class="text-sm font-black text-emerald-950">Rp 142.5M</span>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-100 p-3 rounded-xl">
+                            <span class="text-[9px] uppercase font-bold text-amber-800 block">Kas Tersisa</span>
+                            <span class="text-sm font-black text-amber-950">Rp 12.8M</span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <span class="text-[9px] uppercase font-black text-slate-400 tracking-wider">Alokasi Penyaluran Riil</span>
+                        <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">🎓</span>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-700">Beasiswa UKT Mahasiswa</p>
+                                    <p class="text-[9px] text-slate-400">Tersalurkan ke 420 Mahasiswa</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-black text-slate-800">60%</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">🏥</span>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-700">Kesehatan & Logistik</p>
+                                    <p class="text-[9px] text-slate-400">Bantuan Darurat Medis</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-black text-slate-800">40%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="page-peringkat" class="nav-core-page hidden p-4 space-y-4">
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                    <h2 class="text-xs font-black text-[#1e4637] uppercase tracking-wide">Papan Kebaikan Civitas</h2>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center p-2.5 bg-amber-50/60 border border-amber-200/60 rounded-xl">
+                            <div class="flex items-center gap-2.5 text-xs">
+                                <span class="font-black text-amber-600">🥇 1</span>
+                                <span class="font-bold text-slate-800">FEB Unpad</span>
+                            </div>
+                            <span class="text-[10px] bg-amber-600 text-white font-extrabold px-2 py-0.5 rounded-full">12.450 XP</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2.5 bg-slate-50 border border-slate-100 rounded-xl">
+                            <div class="flex items-center gap-2.5 text-xs">
+                                <span class="font-black text-slate-400">🥈 2</span>
+                                <span class="font-bold text-slate-800">Fakultas Hukum</span>
+                            </div>
+                            <span class="text-[10px] bg-slate-400 text-white font-bold px-2 py-0.5 rounded-full">10.120 XP</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2.5 bg-slate-50 border border-slate-100 rounded-xl">
+                            <div class="flex items-center gap-2.5 text-xs">
+                                <span class="font-black text-amber-700">🥉 3</span>
+                                <span class="font-bold text-slate-800">Fakultas Pertanian Unpad</span>
+                            </div>
+                            <span class="text-[10px] bg-amber-700 text-white font-bold px-2 py-0.5 rounded-full">9.850 XP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                    <h2 class="text-xs font-black text-slate-800 uppercase tracking-wide">Tukarkan Poin Berkah</h2>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl text-center space-y-2">
+                            <span class="text-2xl block">☕</span>
+                            <p class="text-[11px] font-bold text-slate-700">Voucher Kopi Kantin</p>
+                            <button onclick="tukarHadiahPoin(150)" class="w-full bg-[#1e4637] text-white text-[10px] font-black py-1.5 rounded-lg cursor-pointer">150 XP</button>
+                        </div>
+                        <div class="p-3 bg-slate-50 border border-slate-100 rounded-xl text-center space-y-2">
+                            <span class="text-2xl block">📚</span>
+                            <p class="text-[11px] font-bold text-slate-700">E-Book Premium Fiqh</p>
+                            <button onclick="tukarHadiahPoin(300)" class="w-full bg-[#1e4637] text-white text-[10px] font-black py-1.5 rounded-lg cursor-pointer">300 XP</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="page-profil" class="nav-core-page hidden p-4 space-y-4">
+                <div class="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white rounded-3xl p-5 shadow-xl border border-slate-800 relative overflow-hidden">
+                    <div class="absolute right-[-20px] top-[-20px] w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-400 to-amber-500 flex items-center justify-center text-xl font-black text-slate-950 shadow-md">M</div>
+                        <div>
+                            <h3 class="text-xs font-black uppercase tracking-wide text-amber-400">Premium Digital ID</h3>
+                            <p class="text-sm font-bold text-slate-100">Mahasiswa @ Unpad</p>
+                            <p class="text-[9px] text-slate-400">ID Member: ZW-2026-098</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                        <div>
+                            <span class="text-[8px] uppercase tracking-wider text-slate-400 block">Total Kebaikan</span>
+                            <span class="text-xs font-extrabold text-emerald-400">Rp 480.000</span>
+                        </div>
+                        <div>
+                            <span class="text-[8px] uppercase tracking-wider text-slate-400 block">Status Level</span>
+                            <span class="text-xs font-extrabold text-amber-400">Muzakki Muda</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-2.5">
+                    <h2 class="text-xs font-black text-slate-800 uppercase tracking-wide">Koleksi Lencana Digital</h2>
+                    <div class="flex gap-3 overflow-x-auto py-1 scrollbar-none">
+                        <div class="flex-shrink-0 text-center space-y-1">
+                            <span class="w-10 h-10 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-lg mx-auto shadow-2xs">🏅</span>
+                            <p class="text-[9px] font-bold text-slate-600">Pejuang Subuh</p>
+                        </div>
+                        <div class="flex-shrink-0 text-center space-y-1">
+                            <span class="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-lg mx-auto shadow-2xs">🛡️</span>
+                            <p class="text-[9px] font-bold text-slate-600">Sadar Syariat</p>
+                        </div>
+                        <div class="flex-shrink-0 text-center space-y-1">
+                            <span class="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-lg mx-auto shadow-2xs">🤝</span>
+                            <p class="text-[9px] font-bold text-slate-600">Solidaritas Aktif</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <nav id="main-footer" class="hidden absolute bottom-0 inset-x-0 bg-white border-t border-slate-100 px-6 py-2.5 justify-between items-center shrink-0 shadow-inner z-40 rounded-b-[32px]">
+            <button onclick="navigasiMenuUtama('workspace')" id="nav-btn-workspace" class="nav-footer-btn flex flex-col items-center gap-0.5 text-slate-400 active:scale-95 transition-transform cursor-pointer">
+                <span class="text-xl">🏠</span>
+                <span class="text-[9px] font-bold">Workspace</span>
+            </button>
+            <button onclick="navigasiMenuUtama('laporan')" id="nav-btn-laporan" class="nav-footer-btn flex flex-col items-center gap-0.5 text-slate-400 active:scale-95 transition-transform cursor-pointer">
+                <span class="text-xl">📊</span>
+                <span class="text-[9px] font-bold">Laporan</span>
+            </button>
+            <button onclick="navigasiMenuUtama('peringkat')" id="nav-btn-peringkat" class="nav-footer-btn flex flex-col items-center gap-0.5 text-slate-400 active:scale-95 transition-transform cursor-pointer">
+                <span class="text-xl">🏆</span>
+                <span class="text-[9px] font-bold">Peringkat</span>
+            </button>
+            <button onclick="navigasiMenuUtama('profil')" id="nav-btn-profil" class="nav-footer-btn flex flex-col items-center gap-0.5 text-slate-400 active:scale-95 transition-transform cursor-pointer">
+                <span class="text-xl">👤</span>
+                <span class="text-[9px] font-bold">Profil</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <div id="toast-notif" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 bg-slate-900 border border-slate-800 text-white text-xs font-bold px-4 py-3.5 rounded-2xl shadow-2xl transition-all duration-300 max-w-xs z-50 flex items-center gap-3">
+        <div class="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center text-xs" id="toast-box-icon">✨</div>
+        <span id="toast-msg">Notifikasi Terbuka</span>
+    </div>
+
+    <script>
+        let akumulasiXpUser = 350;
+        let nominalRutinitasSubuh = 1000;
+        let statusSubuhAktif = false;
+        let danaP2PTerkumpul = 7200000;
+
+        function prosesAutentikasiLogin() {
+            document.getElementById('page-landing').classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                document.getElementById('page-landing').classList.add('hidden');
+                document.getElementById('main-header').classList.remove('hidden');
+                document.getElementById('main-header').classList.add('flex');
+                document.getElementById('main-footer').classList.remove('hidden');
+                document.getElementById('main-footer').classList.add('flex');
+                
+                // Masuk ke Menu Workspace Default
+                navigasiMenuUtama('workspace');
+                munculkanToast("Koneksi berhasil! Selamat berburu berkah kebaikan.", "🔑");
+            }, 400);
+        }
+
+        function logoutAplikasi() {
+            document.getElementById('page-landing').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('page-landing').classList.remove('opacity-0', 'pointer-events-none');
+                document.getElementById('main-header').classList.add('hidden');
+                document.getElementById('feature-tabs').classList.add('hidden');
+                document.getElementById('workspace-container').classList.add('hidden');
+                
+                // Sembunyikan semua page utama
+                document.querySelectorAll('.nav-core-page').forEach(p => p.classList.add('hidden'));
+                document.getElementById('main-footer').classList.add('hidden');
+                munculkanToast("Akses akun berhasil ditutup dengan aman.", "ℹ️");
+            }, 50);
+        }
+
+        // FUNGSI NAVIGASI UTAMA (4 Tombol Menu Footer)
+        function navigasiMenuUtama(menuId) {
+            // Sembunyikan semua sub-page kustom & kontainer utama
+            document.querySelectorAll('.nav-core-page').forEach(p => p.classList.add('hidden'));
+            document.getElementById('workspace-container').classList.add('hidden');
+            document.getElementById('feature-tabs').classList.add('hidden');
+            
+            // Atur warna tombol aktif di footer
+            document.querySelectorAll('.nav-footer-btn').forEach(btn => {
+                btn.classList.remove('text-[#1e4637]', 'font-black');
+                btn.classList.add('text-slate-400', 'font-bold');
+            });
+
+            const btnAktif = document.getElementById('nav-btn-' + menuId);
+            btnAktif.classList.remove('text-slate-400', 'font-bold');
+            btnAktif.classList.add('text-[#1e4637]', 'font-black');
+
+            // Logika spesifik per halaman
+            if (menuId === 'workspace') {
+                document.getElementById('feature-tabs').classList.remove('hidden');
+                document.getElementById('feature-tabs').classList.add('flex');
+                document.getElementById('workspace-container').classList.remove('hidden');
+                bukaHalamanWorkspace('fitur1'); // Default sub-fitur di dalam workspace
+            } else {
+                document.getElementById('page-' + menuId).classList.remove('hidden');
+            }
+        }
+
+        // FUNGSI SUB-NAVIGASI WORKSPACE (5 Tab Fitur)
+        function bukaHalamanWorkspace(fiturId) {
+            document.querySelectorAll('.fitur-page').forEach(page => page.classList.add('hidden'));
+            document.getElementById('page-' + fiturId).classList.remove('hidden');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-[#1e4637]', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-600', 'border-slate-100');
+            });
+            
+            const tabAktif = document.getElementById('tab-' + fiturId);
+            tabAktif.classList.remove('bg-white', 'text-slate-600', 'border-slate-100');
+            tabAktif.classList.add('bg-[#1e4637]', 'text-white', 'shadow-sm');
+            
+            tabAktif.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
+        function hitungSimulasiDampak() {
+            const danaMasuk = parseFloat(document.getElementById('impact-input').value) || 0;
+            const textOutput = document.getElementById('impact-output');
+            
+            if (danaMasuk <= 0) {
+                textOutput.innerText = `"Masukkan nominal angka untuk memetakan investasi sosial Anda secara nyata."`;
+            } else if (danaMasuk < 5000) {
+                textOutput.innerText = `"Donasi Anda setara dengan penyediaan bantuan 1 paket alat tulis dasar ujian mandiri."`;
+            } else if (danaMasuk >= 5000 && danaMasuk < 20000) {
+                textOutput.innerText = `"Donasi Anda setara dengan penyediaan paket alat tulis bagi 1 mahasiswa penerima beasiswa."`;
+            } else if (danaMasuk >= 20000 && danaMasuk < 100000) {
+                textOutput.innerText = `"Donasi Anda setara dengan subsidi penyediaan paket katering makan siang sehat gratis bagi mahasiswa dhuafa."`;
+            } else {
+                textOutput.innerText = `"Donasi Anda setara pembiayaan aset buku cetak kurikulum primer wajib selama 1 semester penuh."`;
+            }
+        }
+
+        function pilihNominalSubuh(nominal, elemenKlik) {
+            nominalRutinitasSubuh = nominal;
+            document.querySelectorAll('.subuh-btn').forEach(btn => {
+                btn.classList.remove('border-[#1e4637]', 'bg-emerald-50', 'text-[#1e4637]', 'font-black');
+                btn.classList.add('border-slate-200', 'text-slate-600', 'bg-white');
+            });
+            elemenKlik.classList.remove('border-slate-200', 'text-slate-600', 'bg-white');
+            elemenKlik.classList.add('border-[#1e4637]', 'bg-emerald-50', 'text-[#1e4637]', 'font-black');
+            munculkanToast("Nominal auto-debit diatur ke Rp " + nominal.toLocaleString('id-ID'), "⚙️");
+        }
+
+        function toggleAktivasiSubuh() {
+            const btnNode = document.getElementById('btn-subuh-status');
+            statusSubuhAktif = !statusSubuhAktif;
+            if (statusSubuhAktif) {
+                btnNode.innerText = "Scheduler Active (Rp " + nominalRutinitasSubuh.toLocaleString('id-ID') + ") 🛑 Batal";
+                btnNode.className = "w-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold py-3.5 rounded-xl shadow-md transition-all uppercase tracking-wide cursor-pointer";
+                munculkanToast("🌅 Autodebit Subuh Sukses Diaktifkan!", "⏰");
+            } else {
+                btnNode.innerText = "Aktifkan Rutinitas Otomatis";
+                btnNode.className = "w-full bg-[#1e4637] hover:bg-[#143429] text-white text-xs font-extrabold py-3.5 rounded-xl shadow-md transition-all uppercase tracking-wide cursor-pointer";
+                munculkanToast("Penjadwal otomatis dinonaktifkan.", "ℹ️");
+            }
+        }
+
+        function prosesJawabanKuis(isBenar) {
+            const containerKuis = document.getElementById('quiz-box-container');
+            if (isBenar) {
+                akumulasiXpUser += 100;
+                document.getElementById('global-xp').innerText = akumulasiXpUser;
+                containerKuis.innerHTML = `
+                    <div class="text-center py-3 space-y-1">
+                        <p class="text-2xl">🎉</p>
+                        <p class="text-xs font-black text-emerald-800 uppercase">Pemahaman Valid!</p>
+                        <p class="text-[10px] text-slate-500 max-w-xs mx-auto">Jawaban sah! Selamat kamu mendapatkan bonus <strong class="text-emerald-700">+100 XP Berkah</strong> & Lencana Digital <span class="font-bold text-amber-600">"Muzakki Muda Unpad"</span>.</p>
+                    </div>
+                `;
+                munculkanToast("Kuis tuntas! Badge & XP diklaim.", "🏅");
+            } else {
+                munculkanToast("Jawaban kurang tepat. Coba ulas materi lagi ya!", "❌");
+            }
+        }
+
+        function jalankanSimulasiRoundUp() {
+            munculkanToast("🛒 Transaksi Sukses! Pembulatan Rp700 masuk ke tabungan infak.", "🛍️");
+        }
+
+        function tunaikanDonasiP2P() {
+            const inputKoin = parseFloat(document.getElementById('p2p-nominal-donasi').value) || 0;
+            if (inputKoin <= 0) { 
+                alert("Masukkan nominal angka donasi solidaritas yang valid!"); 
+                return; 
+            }
+            
+            danaP2PTerkumpul += inputKoin;
+            document.getElementById('p2p-current-text').innerText = "Rp " + danaP2PTerkumpul.toLocaleString('id-ID');
+            
+            const batasMaksimumTarget = 10000000;
+            let rasioPersen = (danaP2PTerkumpul / batasMaksimumTarget) * 100;
+            if (rasioPersen > 100) rasioPersen = 100;
+            
+            document.getElementById('p2p-bar').style.width = rasioPersen + "%";
+            munculkanToast("🤝 Solidaritas berhasil disalurkan!", "💚");
+        }
+
+        function tukarHadiahPoin(costXp) {
+            if (akumulasiXpUser >= costXp) {
+                akumulasiXpUser -= costXp;
+                document.getElementById('global-xp').innerText = akumulasiXpUser;
+                munculkanToast("🎁 Reward berhasil diklaim! Kode voucher dikirim ke email.", "✅");
+            } else {
+                munculkanToast("XP Berkah tidak mencukupi untuk penukaran ini.", "❌");
+            }
+        }
+
+        function munculkanToast(pesan, iconVisual = "✨") {
+            const boxToast = document.getElementById('toast-notif');
+            document.getElementById('toast-box-icon').innerText = iconVisual;
+            document.getElementById('toast-msg').innerText = pesan;
+            
+            boxToast.classList.remove('translate-y-20', 'opacity-0');
+            boxToast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                boxToast.classList.remove('translate-y-0', 'opacity-100');
+                boxToast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

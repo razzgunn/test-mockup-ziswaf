@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZiswafHub Mobile - Premium UI Experience</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-slate-950 flex justify-center items-center min-h-screen antialiased text-slate-800 p-2 sm:p-4">
+
+    <div class="w-full max-w-md h-[844px] bg-[#f8fafc] shadow-2xl rounded-[40px] border-8 border-slate-900 overflow-hidden relative flex flex-col">
+        
+        <div class="bg-[#1e4637] text-white px-6 pt-3 pb-2 flex justify-between items-center text-xs font-bold shrink-0 z-50">
+            <div>09:41</div>
+            <div class="w-24 h-4 bg-slate-950 rounded-full mx-auto absolute left-1/2 transform -translate-x-1/2 top-2"></div>
+            <div class="flex items-center gap-1">
+                <span>📶</span>
+                <span>🪫</span>
+            </div>
+        </div>
+
+        <header id="main-header" class="hidden bg-white text-slate-800 px-4 py-3 justify-between items-center shadow-sm border-b border-slate-100 shrink-0 z-40">
+            <div class="flex items-center gap-2">
+                <svg class="w-32 h-9" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="21" fill="#1e4637"/>
+                    <path d="M14 25C16.5 25 16.5 23 16.5 23C16.5 23 16.5 25 19 25C16.5 25 16.5 27 16.5 27C16.5 27 16.5 25 14 25Z" fill="#a3b899" opacity="0.8"/>
+                    <path d="M19 18H31L20 33H31" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="54" y="27" font-family="sans-serif" font-size="15" font-weight="800" fill="#1e4637" letter-spacing="0.3">ZISWAF</text>
+                    <text x="116" y="27" font-family="sans-serif" font-size="15" font-weight="800" fill="#cc9a06" letter-spacing="0.3">HUB</text>
+                    <text x="54" y="38" font-family="sans-serif" font-size="5" font-weight="600" fill="#718096" letter-spacing="0.6">ZAKAT · INFAQ · SHADAQAH · WAKAF</text>
+                </svg>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="bg-amber-50 border border-amber-200/60 rounded-full px-2.5 py-1 flex items-center gap-1">
+                    <span class="text-xs">✨</span>
+                    <span class="text-xs font-black text-[#cc9a06]" id="global-xp">350</span>
+                    <span class="text-[9px] text-amber-700 font-bold">XP</span>
+                </div>
+            </div>
+        </header>
+
+        <nav id="feature-tabs" class="hidden bg-white border-b border-slate-100 p-2 overflow-x-auto whitespace-nowrap shrink-0 z-40 gap-2 scrollbar-none">
+            <button onclick="bukaHalamanWorkspace('fitur1')" id="tab-fitur1" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all shadow-sm cursor-pointer">📊 Dampak</button>
+            <button onclick="bukaHalamanWorkspace('fitur2')" id="tab-fitur2" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer">🌅 Subuh Routine</button>
+            <button onclick="bukaHalamanWorkspace('fitur3')" id="tab-fitur3" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer">📚 Kuis Fiqh</button>
+            <button onclick="bukaHalamanWorkspace('fitur4')" id="tab-fitur4" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer">🛒 Pembulatan</button>
+            <button onclick="bukaHalamanWorkspace('fitur5')" id="tab-fitur5" class="tab-btn inline-block px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer">🤝 Solidaritas</button>
+        </nav>
+
+        <main class="flex-1 overflow-y-auto relative bg-[#f8fafc] pb-20">
+
+            <section id="page-landing" class="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-b from-[#1e4637] via-[#112a21] to-[#0a1b15] text-white z-50 transition-all duration-500">
+                <div class="absolute top-12 left-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-36 right-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
+
+                <div class="flex flex-col items-center text-center my-auto space-y-8 relative z-10 w-full">
+                    <div class="bg-white p-4 rounded-3xl shadow-2xl border-2 border-amber-400/40 transform scale-105">
+                        <svg class="w-44 h-12" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="21" fill="#1e4637"/>
+                            <path d="M14 25C16.5 25 16.5 23 16.5 23C16.5 23 16.5 25 19 25C16.5 25 16.5 27 16.5 27C16.5 27 16.5 25 14 25Z" fill="#a3b899" opacity="0.8"/>
+                            <path d="M19 18H31L20 33H31" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="54" y="27" font-family="sans-serif" font-size="15" font-weight="800" fill="#1e4637" letter-spacing="0.3">ZISWAF</text>
+                            <text x="116" y="27" font-family="sans-serif" font-size="15" font-weight="800" fill="#cc9a06" letter-spacing="0.3">HUB</text>
+                            <text x="54" y="38" font-family="sans-serif" font-size="5" font-weight="600" fill="#718096" letter-spacing="0.6">ZAKAT · INFAQ · SHADAQAH · WAKAF</text>
+                        </svg>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex justify-center items-center gap-2.5 text-2xl font-black uppercase tracking-wider">
+                            <span class="text-emerald-400 drop-shadow">Kenali.</span>
+                            <span class="text-amber-400 drop-shadow">Pahami.</span>
+                            <span class="text-white drop-shadow">Tunaikan.</span>
+                        </div>
+                        <div class="w-12 h-1 bg-gradient-to-r from-emerald-400 to-amber-400 mx-auto rounded-full"></div>
+                        <p class="text-xs text-slate-300 max-w-xs mx-auto leading-relaxed">
+                            Ekosistem filantropi Islam digital penumbuh jiwa kedermawanan generasi muda dalam satu genggaman pintar.
+                        </p>
+                    </div>
+
+                    <div class="w-full bg-white/5 backdrop-blur-xl rounded-3xl p-5 border border-white/10 text-left space-y-4 shadow-xl">
+                        <div class="text-center pb-1">
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-3 py-1 rounded-full uppercase tracking-widest">Portal Integrasi Mahasiswa</span>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-300">Email Akun Single Sign-On</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3.5 text-xs text-slate-400">👤</span>
+                                <input type="text" id="login-user" value="mahasiswa@unpad.ac.id" class="w-full bg-slate-900/40 border border-white/10 rounded-xl pl-9 pr-3 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-amber-400 focus:bg-slate-900/80 transition-all">
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-300">Kata Sandi</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3.5 text-xs text-slate-400">🔒</span>
+                                <input type="password" id="login-pass" value="••••••••" class="w-full bg-slate-900/40 border border-white/10 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400 focus:bg-slate-900/80 transition-all">
+                            </div>
+                        </div>
+                        <button onclick="prosesAutentikasiLogin()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-extrabold text-xs py-3.5 rounded-xl transition-all shadow-lg active:scale-[0.98] mt-2 tracking-wide uppercase cursor-pointer">
+                            Masuk Ke Dasbor Berkah
+                        </button>
+                    </div>
+                </div>
+                <p class="text-[10px] text-center text-slate-500 font-medium">Platform Berlisensi v2.4.0 • Syariat Compliance</p>
+            </section>
+
+            <div id="workspace-container" class="hidden">
+                <section id="page-fitur1" class="fitur-page hidden p-4 space-y-4">
+                    <div class="flex justify-between items-center bg-white p-3 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-lg bg-emerald-50 flex items-center justify-center text-sm">📊</div>
+                            <span class="text-xs font-bold text-slate-700">Skema Transparansi Riil</span>
+                        </div>
+                        <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">100% Amanah</span>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-[#1e4637] to-[#112d22] rounded-3xl p-5 text-white shadow-xl relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-24 h-24 bg-amber-400/10 rounded-full blur-2xl"></div>
+                        <h2 class="text-xs font-extrabold uppercase tracking-widest text-amber-400 mb-1">Impact Tracking Engine</h2>
+                        <p class="text-[11px] text-slate-300 leading-relaxed mb-4">Ubah kalkulasi rupiah Anda menjadi wujud indikator sosial logis dan nyata secara langsung.</p>
+                        
+                        <div class="bg-black/20 p-4 rounded-2xl border border-white/10 space-y-3">
+                            <div class="text-center">
+                                <span class="text-[9px] uppercase tracking-wider font-bold text-emerald-300 block mb-1">Ketik Nominal Rupiah Anda</span>
+                                <div class="relative max-w-[200px] mx-auto">
+                                    <span class="absolute left-3 top-2 text-sm font-bold text-slate-400">Rp</span>
+                                    <input type="number" id="impact-input" value="10000" oninput="hitungSimulasiDampak()" class="w-full bg-slate-900/60 border border-white/10 rounded-xl pl-9 pr-2 py-2 text-base font-black text-center text-white focus:outline-none focus:border-amber-400">
+                                </div>
+                            </div>
+
+                            <div class="bg-white/5 backdrop-blur-sm p-3.5 rounded-xl border border-white/10 text-center relative">
+                                <div class="w-2 h-2 rounded-full bg-emerald-400 absolute left-2 top-2 animate-ping"></div>
+                                <p class="text-[9px] text-amber-300 uppercase font-black tracking-widest mb-1.5">Proyeksi Penyaluran Manfaat</p>
+                                <p id="impact-output" class="text-xs font-bold text-slate-100 italic leading-relaxed">"Donasi Anda setara dengan penyediaan paket alat tulis bagi 1 mahasiswa penerima beasiswa."</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="page-fitur2" class="fitur-page hidden p-4 space-y-4">
+                    <div class="bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 rounded-2xl p-4 text-white shadow-md flex items-center justify-between">
+                        <div class="space-y-1">
+                            <span class="text-[9px] bg-black/20 text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Fajar Berkah</span>
+                            <h3 class="text-xs font-black">"Sedekah di subuh hari didoakan langsung oleh 2 Malaikat."</h3>
+                        </div>
+                        <span class="text-3xl opacity-80">🌤️</span>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm space-y-4">
+                        <div class="flex items-center gap-3 border-b border-slate-50 pb-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-lg shadow-sm border border-amber-100">🌅</div>
+                            <div>
+                                <h2 class="text-xs font-black text-slate-800 uppercase tracking-wide">Subuh-Routine Scheduler</h2>
+                                <p class="text-[10px] text-slate-400">Otomasi micro-donation berkala pukul 04.30 - 05.30 WIB</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200/60 rounded-2xl p-4 space-y-4">
+                            <div class="space-y-1.5">
+                                <label class="text-[10px] uppercase font-black text-slate-400 tracking-wider block">Set Komitmen Dana Harian</label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button onclick="pilihNominalSubuh(1000, this)" class="subuh-btn py-2.5 text-xs font-black border border-[#1e4637] bg-emerald-50 text-[#1e4637] rounded-xl shadow-xs transition-all cursor-pointer">Rp 1.000</button>
+                                    <button onclick="pilihNominalSubuh(5000, this)" class="subuh-btn py-2.5 text-xs font-bold border border-slate-200 text-slate-600 bg-white rounded-xl transition-all cursor-pointer">Rp 5.000</button>
+                                    <button onclick="pilihNominalSubuh(10000, this)" class="subuh-btn py-2.5 text-xs font-bold border border-slate-200 text-slate-600 bg-white rounded-xl transition-all cursor-pointer">Rp 10.000</button>
+                                </div>
+                            </div>
+                            
+                            <button onclick="toggleAktivasiSubuh()" id="btn-subuh-status" class="w-full bg-[#1e4637] hover:bg-[#143429] text-white text-xs font-extrabold py-3.5 rounded-xl shadow-md transition-all uppercase tracking-wide cursor-pointer">
+                                Aktifkan Rutinitas Otomatis
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="page-fitur3" class="fitur-page hidden p-4 space-y-4">
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-amber-400 flex items-center justify-center text-white text-base shadow-sm font-bold">🏆</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between text-[10px] font-bold text-slate-600 mb-1">
+                                <span>Lencana Aktivitas Ilmu</span>
+                                <span>Level 2 (Muzakki Muda)</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden"><div class="bg-amber-400 h-full w-[60%] rounded-full"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-50 pb-2">
+                            <h2 class="text-xs font-black text-[#1e4637] uppercase tracking-wide">Micro-Learning Center</h2>
+                            <span class="text-[9px] bg-amber-100 text-amber-800 font-extrabold px-2 py-0.5 rounded-full">+100 XP Berkah</span>
+                        </div>
+                        
+                        <div class="bg-slate-950 text-white rounded-2xl overflow-hidden aspect-video border-2 border-slate-800 shadow-inner relative">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/dblymXs6lfI" title="Jadi Paham Jenis Zakat, Nisab & Haul Cuma 3 Menit! | ZakatEdu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+
+                        <div id="quiz-box-container" class="border border-dashed border-amber-300 rounded-2xl p-4 bg-amber-50/40 space-y-3">
+                            <div class="flex justify-between items-center">
+                                <p class="text-[9px] font-black text-amber-800 uppercase tracking-widest flex items-center gap-1">📝 ZakatEdu Trivia</p>
+                                <span id="quiz-progress-text" class="text-[10px] font-bold text-amber-900 bg-amber-200/60 px-2 py-0.5 rounded-md">Soal 1 dari 10</span>
+                            </div>
+                            <p id="quiz-question-text" class="text-xs font-black text-slate-700 leading-relaxed min-h-[36px]">Memuat pertanyaan...</p>
+                            <div id="quiz-options-group" class="space-y-2"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="page-fitur4" class="fitur-page hidden p-4 space-y-4">
+                    <div class="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm space-y-4">
+                        <h2 class="text-xs font-black text-slate-800 uppercase tracking-wide">Pocket Change Round-Up</h2>
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 text-xs">
+                            <div class="bg-gradient-to-r from-emerald-50 to-teal-50 p-4 rounded-xl text-center border border-emerald-100 shadow-xs">
+                                <p class="text-[10px] text-emerald-900 font-semibold mb-0.5">Uang Kembalian Dialokasikan ke Infak</p>
+                                <p class="text-emerald-700 text-base font-black">Rp 700</p>
+                            </div>
+                            <button onclick="jalankanSimulasiRoundUp()" class="w-full bg-slate-900 hover:bg-slate-950 text-white text-xs font-black py-3.5 rounded-xl shadow-md transition-all uppercase tracking-wide mt-1 cursor-pointer">
+                                Simulasikan Belanja QRIS
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="page-fitur5" class="fitur-page hidden p-4 space-y-4">
+                    <div class="bg-white border border-slate-100 rounded-3xl p-5 shadow-sm space-y-4 relative overflow-hidden">
+                        <div class="space-y-1">
+                            <span class="text-[8px] bg-amber-100 text-amber-800 font-extrabold px-2 py-0.5 rounded uppercase tracking-wide">Solidaritas Kampus</span>
+                            <h3 class="text-sm font-black text-slate-800 leading-snug">Bantuan Dana Darurat Pengobatan Cedera Insiden Mandiri Mahasiswa</h3>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 space-y-2">
+                            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden shadow-inner">
+                                <div id="p2p-bar" class="bg-gradient-to-r from-emerald-600 to-teal-500 h-full rounded-full transition-all duration-700" style="width: 72%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section id="page-laporan" class="nav-core-page hidden p-4 space-y-4">
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                    <h2 class="text-xs font-black text-slate-800 uppercase tracking-wide mb-3">Audited Financial Report</h2>
+                </div>
+            </section>
+
+            <section id="page-peringkat" class="nav-core-page hidden p-4 space-y-4">
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                    <h2 class="text-xs font-black text-[#1e4637] uppercase tracking-wide">Papan Kebaikan Civitas</h2>
+                </div>
+            </section>
+
+
+            <section id="page-profil" class="nav-core-page hidden flex flex-col">
+                <div class="bg-[#1e4637] text-white px-5 pt-7 pb-6 relative overflow-hidden shrink-0">
+                    <div class="absolute right-0 bottom-0 w-28 h-28 bg-amber-400/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="flex items-center justify-between relative z-10">
+                        <div class="flex items-center gap-4">
+                            <div class="relative">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 p-[2px] shadow-md">
+                                    <div class="w-full h-full bg-slate-800 rounded-full flex items-center justify-center text-xl font-extrabold text-white overflow-hidden">
+                                        <span class="text-2xl">😎</span>
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-1 -right-1 bg-amber-500 text-slate-950 font-black text-[8px] px-1.5 py-0.5 rounded-full border border-[#1e4637]">100%</span>
+                            </div>
+                            
+                            <div class="space-y-0.5">
+                                <h3 class="text-sm font-black tracking-wide text-white">Reanie Muzakki</h3>
+                                <p class="text-[11px] text-emerald-200 font-medium">reanie@mahasiswa.ac.id</p>
+                                <div class="inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded-full text-[9px] font-bold text-amber-300 border border-amber-400/30 transition-all mt-1 cursor-pointer">
+                                    <span>Upgrade ke Donatur ✦ Plus</span>
+                                    <span class="text-[7px]">❯</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="text-emerald-300 hover:text-white p-2 transition-colors cursor-pointer text-sm">✏️</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 p-4 bg-white border-b border-slate-100 shadow-xs shrink-0">
+                    <div class="bg-slate-50 border border-slate-100 p-3 rounded-2xl text-center space-y-0.5">
+                        <span class="text-lg font-bold text-[#1e4637]">0</span>
+                        <span class="text-[10px] font-bold text-slate-400 block uppercase tracking-wide">Program Diikuti</span>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-100 p-3 rounded-2xl text-center space-y-0.5">
+                        <span class="text-lg font-bold text-amber-600">162</span>
+                        <span class="text-[10px] font-bold text-slate-400 block uppercase tracking-wide">Riwayat Donasi</span>
+                    </div>
+                </div>
+
+                <div class="bg-white mt-2 divide-y divide-slate-100 border-y border-slate-100">
+                    <a href="#" class="flex items-center justify-between px-5 py-3.5 hover:bg-slate-50/80 transition-colors group">
+                        <span class="text-xs font-semibold text-slate-700 group-hover:text-[#1e4637]">📦 Riwayat Pembayaran & Zakat</span>
+                        <span class="text-xs text-slate-300 group-hover:text-slate-400">❯</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-between px-5 py-3.5 hover:bg-slate-50/80 transition-colors group">
+                        <span class="text-xs font-semibold text-slate-700 group-hover:text-[#1e4637]">💬 Pusat Bantuan Kebaikan</span>
+                        <span class="text-xs text-slate-300 group-hover:text-slate-400">❯</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-between px-5 py-3.5 hover:bg-slate-50/80 transition-colors group">
+                        <span class="text-xs font-semibold text-slate-700 group-hover:text-[#1e4637]">📖 Panduan & Fiqh Lengkap ZISWAF</span>
+                        <span class="text-xs text-slate-300 group-hover:text-slate-400">❯</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-between px-5 py-3.5 hover:bg-slate-50/80 transition-colors group">
+                        <span class="text-xs font-semibold text-slate-700 group-hover:text-[#1e4637]">📋 Syarat dan Ketentuan Syariat</span>
+                        <span class="text-xs text-slate-300 group-hover:text-slate-400">❯</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-between px-5 py-3.5 hover:bg-slate-50/80 transition-colors group">
+                        <span class="text-xs font-semibold text-slate-700 group-hover:text-[#1e4637]">🔒 Kebijakan Privasi Data</span>
+                        <span class="text-xs text-slate-300 group-hover:text-slate-400">❯</span>
+                    </a>
+                </div>
+
+                <div class="px-5 py-4 shrink-0">
+                    <button onclick="logoutAplikasi()" class="text-xs font-bold text-rose-600 hover:text-rose-700 hover:underline transition-all cursor-pointer inline-flex items-center gap-1">
+                        🚪 Keluar Aplikasi
+                    </button>
+                    <p class="text-[10px] text-slate-400 font-medium mt-3">Copyright © 2026 ZISWAF HUB Kampus. All Rights Reserved.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <nav id="main-footer" class="hidden absolute bottom-0 inset-x-0 bg-white border-t border-slate-100 px-6 py-2.5 justify-between items-center shrink-0 shadow-inner z-40 rounded-b-[32px]">
+            <button onclick="navigasiMenuUtama('workspace')" id="nav-btn-workspace" class="nav-footer-btn flex flex-col items-center gap-0.5 text-slate-400 active:scale-95 transition-transform cursor-pointer">
+                <span class="text-xl">🏠</span>
+                <span class="text-[9px] font-bold">Workspace</span>
+            </button>
+            <button onclick="navigasiMenuUtama('laporan')" id="nav-btn-laporan" class="nav-footer-btn flex flex-col items-center gap-0.5 text-slate-400 active:scale-95 transition-transform cursor-pointer">
+                <span class="text-xl">📊</span>
+                <span class="text-[9px] font-bold">Laporan</span>
+            </button>
+            <button onclick="navigasiMenuUtama('peringkat')" id="nav-btn-peringkat" class="nav-footer-btn flex flex-col items-center gap-0.5 text-slate-400 active:scale-95 transition-transform cursor-pointer">
+                <span class="text-xl">🏆</span>
+                <span class="text-[9px] font-bold">Peringkat</span>
+            </button>
+            <button onclick="navigasiMenuUtama('profil')" id="nav-btn-profil" class="nav-footer-btn flex flex-col items-center gap-0.5 text-slate-400 active:scale-95 transition-transform cursor-pointer">
+                <span class="text-xl">👤</span>
+                <span class="text-[9px] font-bold">Akun</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <div id="toast-notif" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 bg-slate-900 border border-slate-800 text-white text-xs font-bold px-4 py-3.5 rounded-2xl shadow-2xl transition-all duration-300 max-w-xs z-50 flex items-center gap-3">
+        <div class="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center text-xs" id="toast-box-icon">✨</div>
+        <span id="toast-msg">Notifikasi Terbuka</span>
+    </div>
+
+    <script>
+        let acumulasiXpUser = 350;
+        let nominalRutinitasSubuh = 1000;
+        let statusSubuhAktif = false;
+        let danaP2PTerkumpul = 7200000;
+
+        const databaseKuisBaznas = [
+            { q: "Secara bahasa, kata 'Zaka' yang menjadi asal kata zakat memiliki arti berikut, kecuali...", o: ["Suci", "Berkah", "Tetap", "Tumbuh"], a: 2 },
+            { q: "Ayat Al-Qur'an yang disebutkan di dalam video sebagai dalil perintah wajibnya menunaikan zakat adalah...", o: ["Surah Al-Baqarah ayat 43", "Surah Al-Baqarah ayat 183", "Surah At-Taubah ayat 103", "Surah Ali 'Imran ayat 92"], a: 0 },
+            { q: "Secara umum, zakat dibagi menjadi dua jenis utama, yaitu...", o: ["Zakat fitrah & profesi", "Zakat fitrah & mal", "Zakat mal & perniagaan", "Zakat emas & pertanian"], a: 1 },
+            { q: "Apa yang dimaksud dengan konsep 'Nisab' dalam syariat pengelolaan zakat?", o: ["Batasan waktu minimal", "Tata cara penyaluran", "Batasan minimal harta", "Persentase tarif potongan"], a: 2 },
+            { q: "Berapakah durasi waktu minimal yang menjadi standar syarat 'Haul' bagi harta zakat mal?", o: ["1 Tahun Hijriah", "1 Tahun Masehi", "Saat masa panen", "Minimal 6 bulan"], a: 0 },
+            { q: "Bila dikonversikan ke dalam berat timbangan modern, berapakah besaran minimal zakat fitrah per jiwa?", o: ["3,5 kg makanan pokok", "2,5 kg makanan pokok", "2,7 liter makanan pokok", "5,0 kg makanan pokok"], a: 1 },
+            { q: "Besaran zakat fitrah 2,5 kg atau 3,5 liter per jiwa tersebut setara dengan takaran zaman Nabi, yaitu...", o: ["1 sha' gandum / kurma", "1 mud makanan pokok", "2 sha' makanan pokok", "1 wasaq kurma kering"], a: 0 },
+            { q: "Berdasarkan video, variasi tarif persentase pengeluaran untuk zakat mal berkisar antara...", o: ["1% sampai dengan 5%", "2,5% sampai dengan 10%", "2,5% sampai dengan 20%", "Dipatokan rata 2,5%"], a: 2 },
+            { q: "Kapan batas waktu paling lambat (akhir) untuk menunaikan ibadah zakat fitrah?", o: ["Malam takbiran", "Sebelum Shalat Id dimulai", "Khotbah Id selesai", "Sepanjang bulan Syawal"], a: 1 },
+            { q: "Kapan waktu kewajiban membayar zakat mal bagi seorang muslim?", o: ["Serentak saat Ramadan", "Saat capai nisab & haul", "Setiap gajian bulanan", "Saat diminta amil resmi"], a: 1 }
+        ];
+
+        let indexSoalAktif = 0;
+        let totalJawabanBenar = 0;
+
+        function prosesAutentikasiLogin() {
+            document.getElementById('page-landing').classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                document.getElementById('page-landing').classList.add('hidden');
+                document.getElementById('main-header').classList.remove('hidden');
+                document.getElementById('main-header').classList.add('flex');
+                document.getElementById('main-footer').classList.remove('hidden');
+                document.getElementById('main-footer').classList.add('flex');
+                
+                navigasiMenuUtama('workspace');
+                munculkanToast("Koneksi berhasil! Selamat berburu berkah kebaikan.", "🔑");
+            }, 400);
+        }
+
+        function logoutAplikasi() {
+            document.getElementById('page-landing').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('page-landing').classList.remove('opacity-0', 'pointer-events-none');
+                document.getElementById('main-header').classList.add('hidden');
+                document.getElementById('feature-tabs').classList.add('hidden');
+                document.getElementById('workspace-container').classList.add('hidden');
+                document.querySelectorAll('.nav-core-page').forEach(p => p.classList.add('hidden'));
+                document.getElementById('main-footer').classList.add('hidden');
+                munculkanToast("Akses akun berhasil ditutup.", "ℹ️");
+            }, 50);
+        }
+
+        function navigasiMenuUtama(menuId) {
+            document.querySelectorAll('.nav-core-page').forEach(p => p.classList.add('hidden'));
+            document.getElementById('workspace-container').classList.add('hidden');
+            document.getElementById('feature-tabs').classList.add('hidden');
+            
+            document.querySelectorAll('.nav-footer-btn').forEach(btn => {
+                btn.classList.remove('text-[#1e4637]', 'font-black');
+                btn.classList.add('text-slate-400', 'font-bold');
+            });
+
+            const btnAktif = document.getElementById('nav-btn-' + menuId);
+            btnAktif.classList.remove('text-slate-400', 'font-bold');
+            btnAktif.classList.add('text-[#1e4637]', 'font-black');
+
+            if (menuId === 'workspace') {
+                document.getElementById('feature-tabs').classList.remove('hidden');
+                document.getElementById('feature-tabs').classList.add('flex');
+                document.getElementById('workspace-container').classList.remove('hidden');
+                bukaHalamanWorkspace('fitur1');
+            } else {
+                document.getElementById('page-' + menuId).classList.remove('hidden');
+            }
+        }
+
+        function bukaHalamanWorkspace(fiturId) {
+            document.querySelectorAll('.fitur-page').forEach(page => page.classList.add('hidden'));
+            document.getElementById('page-' + fiturId).classList.remove('hidden');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-[#1e4637]', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-600', 'border-slate-100');
+            });
+            
+            const tabAktif = document.getElementById('tab-' + fiturId);
+            tabAktif.classList.remove('bg-white', 'text-slate-600', 'border-slate-100');
+            tabAktif.classList.add('bg-[#1e4637]', 'text-white', 'shadow-sm');
+            
+            if(fiturId === 'fitur3') {
+                renderStateKuisFiqh();
+            }
+        }
+
+        function renderStateKuisFiqh() {
+            if (indexSoalAktif >= databaseKuisBaznas.length) {
+                evaluasiHasilAkhirKuis();
+                return;
+            }
+
+            const dataSoal = databaseKuisBaznas[indexSoalAktif];
+            document.getElementById('quiz-progress-text').innerText = `Soal ${indexSoalAktif + 1} dari 10`;
+            document.getElementById('quiz-question-text').innerText = dataSoal.q;
+
+            const grupOpsi = document.getElementById('quiz-options-group');
+            grupOpsi.innerHTML = '';
+
+            dataSoal.o.forEach((opsiText, idx) => {
+                const button = document.createElement('button');
+                button.className = "w-full text-left bg-white border border-slate-200 hover:border-emerald-600 rounded-xl p-3 text-xs font-bold text-slate-600 hover:text-[#1e4637] shadow-2xs transition-all cursor-pointer";
+                button.innerText = `${String.fromCharCode(65 + idx)}. ${opsiText}`;
+                button.onclick = () => verifikasiJawabanKuis(idx);
+                grupOpsi.appendChild(button);
+            });
+        }
+
+        function verifikasiJawabanKuis(pilihanUser) {
+            const indexJawabanBenar = databaseKuisBaznas[indexSoalAktif].a;
+            if (pilihanUser === indexJawabanBenar) {
+                totalJawabanBenar++;
+                munculkanToast("Jawaban kamu Tepat!", "🟢");
+            } else {
+                munculkanToast("Kurang tepat, mari fokus lagi.", "❌");
+            }
+            indexSoalAktif++;
+            renderStateKuisFiqh();
+        }
+
+        function evaluasiHasilAkhirKuis() {
+            const containerKuis = document.getElementById('quiz-box-container');
+            const statusLulus = totalJawabanBenar >= 7;
+
+            if (statusLulus) {
+                acumulasiXpUser += 100;
+                document.getElementById('global-xp').innerText = acumulasiXpUser;
+                containerKuis.innerHTML = `
+                    <div class="text-center py-3 space-y-1">
+                        <p class="text-2xl">🎉</p>
+                        <p class="text-xs font-black text-emerald-800 uppercase">Kuis Selesai!</p>
+                        <p class="text-[11px] text-slate-700 font-bold">Skor: ${totalJawabanBenar * 10}/100</p>
+                        <button onclick="ulangiKuisDariAwal()" class="mt-2 text-[10px] bg-[#1e4637] text-white px-3 py-1.5 rounded-lg font-bold cursor-pointer">Coba Lagi</button>
+                    </div>
+                `;
+            } else {
+                containerKuis.innerHTML = `
+                    <div class="text-center py-3 space-y-1">
+                        <p class="text-2xl">⚠️</p>
+                        <p class="text-xs font-black text-rose-800 uppercase">Belum Lulus</p>
+                        <p class="text-[11px] text-slate-700 font-bold">Skor: ${totalJawabanBenar * 10}/100</p>
+                        <button onclick="ulangiKuisDariAwal()" class="mt-2 text-[10px] bg-slate-800 text-white px-3 py-1.5 rounded-lg font-bold cursor-pointer">Ulangi Kuis</button>
+                    </div>
+                `;
+            }
+        }
+
+        function ulangiKuisDariAwal() {
+            indexSoalAktif = 0;
+            totalJawabanBenar = 0;
+            const containerKuis = document.getElementById('quiz-box-container');
+            containerKuis.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <p class="text-[9px] font-black text-amber-800 uppercase tracking-widest flex items-center gap-1">📝 ZakatEdu Trivia</p>
+                    <span id="quiz-progress-text" class="text-[10px] font-bold text-amber-900 bg-amber-200/60 px-2 py-0.5 rounded-md">Soal 1 dari 10</span>
+                </div>
+                <p id="quiz-question-text" class="text-xs font-black text-slate-700 leading-relaxed min-h-[36px]">Memuat pertanyaan...</p>
+                <div id="quiz-options-group" class="space-y-2"></div>
+            `;
+            renderStateKuisFiqh();
+        }
+
+        function hitungSimulasiDampak() {
+            const danaMasuk = parseFloat(document.getElementById('impact-input').value) || 0;
+            const textOutput = document.getElementById('impact-output');
+            if (danaMasuk <= 0) {
+                textOutput.innerText = `"Masukkan nominal angka untuk memetakan investasi sosial Anda secara nyata."`;
+            } else {
+                textOutput.innerText = `"Donasi Anda setara dengan penyediaan paket alat tulis bagi 1 mahasiswa penerima beasiswa."`;
+            }
+        }
+
+        function pilihNominalSubuh(nominal, elemenKlik) {
+            nominalRutinitasSubuh = nominal;
+            document.querySelectorAll('.subuh-btn').forEach(btn => {
+                btn.className = "subuh-btn py-2.5 text-xs font-bold border border-slate-200 text-slate-600 bg-white rounded-xl transition-all cursor-pointer";
+            });
+            elemenKlik.className = "subuh-btn py-2.5 text-xs font-black border border-[#1e4637] bg-emerald-50 text-[#1e4637] rounded-xl shadow-xs transition-all cursor-pointer";
+            munculkanToast("Nominal diatur ke Rp " + nominal.toLocaleString('id-ID'), "⚙️");
+        }
+
+        function toggleAktivasiSubuh() {
+            const btnNode = document.getElementById('btn-subuh-status');
+            statusSubuhAktif = !statusSubuhAktif;
+            if (statusSubuhAktif) {
+                btnNode.innerText = "Scheduler Active 🛑 Batal";
+                btnNode.className = "w-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold py-3.5 rounded-xl shadow-md transition-all uppercase tracking-wide cursor-pointer";
+                munculkanToast("🌅 Autodebit Subuh Sukses Diaktifkan!", "⏰");
+            } else {
+                btnNode.innerText = "Aktifkan Rutinitas Otomatis";
+                btnNode.className = "w-full bg-[#1e4637] hover:bg-[#143429] text-white text-xs font-extrabold py-3.5 rounded-xl shadow-md transition-all uppercase tracking-wide cursor-pointer";
+                munculkanToast("Penjadwal otomatis dinonaktifkan.", "ℹ️");
+            }
+        }
+
+        function jalankanSimulasiRoundUp() {
+            munculkanToast("🛒 Transaksi Sukses! Pembulatan Rp700 masuk ke tabungan infak.", "🛍️");
+        }
+
+        function munculkanToast(pesan, iconVisual = "✨") {
+            const boxToast = document.getElementById('toast-notif');
+            document.getElementById('toast-box-icon').innerText = iconVisual;
+            document.getElementById('toast-msg').innerText = pesan;
+            boxToast.classList.remove('translate-y-20', 'opacity-0');
+            boxToast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                boxToast.classList.remove('translate-y-0', 'opacity-100');
+                boxToast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
